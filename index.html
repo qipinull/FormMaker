@@ -8,20 +8,27 @@
 
 </head>
 <body>
-    <form action="javascript:submitGame()">
-        <label for="game">GAME</label><br>
-        <input type="text" id="game" name="game" placeholder="Game goes here" value=""><br><br>
-        <label for="gameType">GAME TYPE</label><br>
-        <input type="text" id="gameType" name="gameType" placeholder="Game type goes here" value=""><br><br>
-        <input type="submit">
-    </form><br>
+    <div class="title">
+        <h1>WELCOME TO GAME TABLE MAKER</h1>
+    </div>
 
-    <table id="gameTable">
-        <tr>
-            <th>Game</th>
-            <th>GameType</th>
-          </tr>
-    </table>
+    <section class="formMaker">
+        <form action="javascript:submitGame()">
+            <label for="game">GAME</label><br>
+            <input type="text" id="gameId" name="game" placeholder="Game goes here" value="" required><br><br>
+            <label for="gameType">GAME TYPE</label><br>
+            <input type="text" id="gameTypeId" name="gameType" placeholder="Game type goes here" value="" required><br><br>
+            <input type="reset" onclick="submitGame()">
+        </form><br>
+    </section>
+    <section>
+        <table id="gameTable" class="bordered">
+            <tr>
+                <th>Game</th>
+                <th>GameType</th>
+            </tr>
+        </table>
+    </section>
     <script src="scripts.js"></script>
 </body>
 </html>

@@ -3,22 +3,41 @@
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 body, html {
     height: 100%;
 }
 
-table {
-    border: 2px solid black;
-    padding: 2px;
-}
-
 th {
-    border: 2px solid purple;
-    padding: 5px;
+    width: 50%;
+    text-align: center;
+    font-size: x-large;
 }
 
 td {
-    border: 2px solid green;
+    text-align: center;
+    font-size: x-large;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-size: xx-large;
+}
+
+table.bordered {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.bordered td,  table.bordered th {
+    border: 2px solid black;
+}
+
+.formMaker {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
 }
