@@ -9,23 +9,22 @@
 </head>
 <body>
     <div class="title">
-        <h1>WELCOME TO GAME TABLE MAKER</h1>
+        <h1>WELCOME TO TABLE MAKER</h1>
     </div>
-
     <section class="formMaker">
-        <form action="javascript:submitGame()">
-            <label for="game">GAME</label><br>
-            <input type="text" id="gameId" name="game" placeholder="Game goes here" value="" required><br><br>
-            <label for="gameType">GAME TYPE</label><br>
-            <input type="text" id="gameTypeId" name="gameType" placeholder="Game type goes here" value="" required><br><br>
-            <input type="reset" onclick="submitGame()" value="Enter">
+        <form action="">
+            <label for="row">Add Row</label><br><br>
+            <input type="reset" onclick="submitCollumRow()" value="Enter Row"><br>
+            <input type="text" id="rowId" name="rowName" placeholder="Row name goes here" value="" required><br><br>
+        </form><br>
+        <p>Add Collum</p><br>
+        <form action="" id="addCollum">
+            <input type="reset" onclick="submitRow()" value="Enter Collum"><br>
         </form><br>
     </section>
     <section>
         <table id="gameTable" class="bordered">
-            <tr>
-                <th>Game</th>
-                <th>GameType</th>
+            <tr id="row">
             </tr>
         </table>
     </section>

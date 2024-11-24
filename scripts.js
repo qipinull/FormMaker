@@ -1,25 +1,48 @@
 console.log("script is running")
-var i = 0
-function submitGame(i) {
-    var game = document.getElementById("gameId").value;
-    var gameType = document.getElementById("gameTypeId").value;
-    
-        if (game === "") {
-            return
-        }
 
-        if (gameType.length === "") {
+var rowList = [];
+
+function submitRow() {
+    for (let i = 0; i < rowList.length; i++) {
+    var collum = document.getElementById(rowList[i]).value;
+    
+        if (collum.length === "") {
             return
         }
-    
-    console.log(i)
 
     const gameTable = document.getElementById('gameTable')
-    const newGame = document.createElement(`tr`)
-    newGame.innerHTML = `<td>${game}</td>
-                         <td>${gameType}</td>`
+    const inputCollum = document.createElement(`tr`)
+    inputCollum.innerHTML = `<td>${collum}</td>`
 
-    gameTable.appendChild(newGame)
-    var i = (i++)
-    return(i)
+    gameTable.appendChild(inputCollum)
+    }
+}
+
+function submitCollumRow() {
+    const br = document.createElement("br");
+    var row = document.getElementById("rowId").value;
+    
+        if (row === "") {
+            return
+        }
+
+    const gameTableRow = document.getElementById('row')
+    const newRow = document.createElement('th')
+    newRow.innerHTML = `<th>${row}</th>`
+
+
+    const gameTableCollum = document.getElementById("addCollum")
+    var newCollum = document.createElement("input");
+    newCollum.setAttribute("type", "text");
+    newCollum.setAttribute(`placeholder`, `Add to ${row}`);
+    newCollum.setAttribute(`id`, row);
+    console.log(newCollum)
+    console.log(br)
+    
+    rowList.push(row);
+    console.log(rowList)
+
+    gameTableRow.appendChild(newRow)
+    gameTableCollum.appendChild(newCollum)
+    gameTableCollum.appendChild(br)
 }
