@@ -2,7 +2,7 @@ console.log("script is running")
 
 var rowList = [];
 
-function submitRow() {
+function submitCollum() {
     for (let i = 0; i < rowList.length; i++) {
     var collum = document.getElementById(rowList[i]).value;
     
