@@ -24,7 +24,7 @@ document.getElementById('fileInput')
 function submitCollum() {
     const inputCollum = document.createElement(`tr`)
     for (let i = 0; i < rowList.length; i++) {
-    var collum = document.getElementById("c" + i).value;
+    var collum = document.getElementById("a" + i).value;
     console.log(collum)
     
         if (collum.length == "") {
@@ -78,7 +78,7 @@ function resetRowField() {
 
 function resetCollumField() {
     for (let x = 0; x < rowList.length; x++) {
-        document.getElementById("c" + x).value= "";
+        document.getElementById("a" + x).value= "";
     }
 }
 
