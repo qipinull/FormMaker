@@ -9,13 +9,15 @@
 </head>
 <body>
     <div class="title">
+        <h3>file input </h3><br>
+        <input type="file" id="fileInput" accept=".txt"/>
         <h1>WELCOME TO TABLE MAKER</h1>
     </div>
     <section class="formMaker">
         <form action="javascript:submitRow()">
             <label for="row">Add Row</label><br><br>
             <input type="submit" value="Enter Row"><br>
-            <input type="text" id="rowId" name="rowName" placeholder="Row name goes here" value="" required><br><br>
+            <input type="text" id="rowId" name="row" placeholder="Row name goes here" value="" required><br><br>
         </form><br>
         <p>Add Collum</p><br>
         <form action="javascript:submitCollum()" id="addCollum">
@@ -23,10 +25,15 @@
         </form><br>
     </section>
     <section>
-        <table id="gameTable" class="bordered">
+        <table id="baseTable" class="bordered">
             <tr id="row">
             </tr>
+            <tbody id="tbody">
+            </tbody>
         </table>
+    </section>
+    <section>
+        <pre id="output"></pre>
     </section>
     <script src="scripts.js"></script>
 </body>

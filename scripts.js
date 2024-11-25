@@ -1,7 +1,25 @@
 console.log("script is running")
 
 var rowList = [];
-collumList = [];
+var collumList = [];
+var content = ''
+
+document.getElementById('fileInput')
+.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function () {
+        content = reader.result;
+        fileInit()
+    };
+
+    reader.onerror = function () {
+        console.error('Error reading the file');
+    };
+
+    reader.readAsText(file, 'utf-8');
+});
 
 function submitCollum() {
     const inputCollum = document.createElement(`tr`)
@@ -13,10 +31,10 @@ function submitCollum() {
             return
         }
 
-    const gameTable = document.getElementById('gameTable')
+    const baseTable = document.getElementById('baseTable')
 
-    inputCollum.innerHTML += `<td id = "${rowList.length}">${collum}</td>`
-    gameTable.appendChild(inputCollum)
+    inputCollum.innerHTML += `<td id = "b${i}">${collum}</td>`
+    baseTable.appendChild(inputCollum)
     }
     resetCollumField()
 }
@@ -29,16 +47,16 @@ function submitRow() {
             return
         }
 
-    const gameTableRow = document.getElementById('row')
+    const baseTableRow = document.getElementById('row')
     const newRow = document.createElement('th')
     newRow.innerHTML = `<th>${row}</th>`
 
 
-    const gameTableCollum = document.getElementById("addCollum")
+    const baseTableCollum = document.getElementById("addCollum")
     var newCollum = document.createElement("input");
     newCollum.setAttribute(`type`, "text");
     newCollum.setAttribute(`placeholder`, `Add to ${row}`);
-    newCollum.setAttribute(`id`, `c${rowList.length}`);
+    newCollum.setAttribute(`id`, `a${rowList.length}`);
     newCollum.setAttribute(`action`, "javascript:resetField()")
     newCollum.setAttribute(`required`, "")
     console.log(newCollum)
@@ -48,9 +66,9 @@ function submitRow() {
     collumList.push("len");
     console.log(rowList)
 
-    gameTableRow.appendChild(newRow)
-    gameTableCollum.appendChild(newCollum)
-    gameTableCollum.appendChild(br)
+    baseTableRow.appendChild(newRow)
+    baseTableCollum.appendChild(newCollum)
+    baseTableCollum.appendChild(br)
     resetRowField()
 }
 
@@ -62,4 +80,16 @@ function resetCollumField() {
     for (let x = 0; x < rowList.length; x++) {
         document.getElementById("c" + x).value= "";
     }
-}    
+}
+
+function fileInit() {
+    const tbody = document.getElementById('tbody')
+
+    const baseTable = document.getElementById('baseTable')
+
+    console.log(content)
+
+    tbody.innerHTML += content
+    console.log(tbody.innerHTML)
+    baseTable.appendChild(tbody)
+}
